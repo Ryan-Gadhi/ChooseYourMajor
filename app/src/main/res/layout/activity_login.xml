@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBrown"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -70,18 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@color/darkBrown"
+                android:fontFamily="casual"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold|italic" />
-
-            <Button
-                android:id="@+id/newAccountBtn"
-                style="?android:textAppearanceSmall"
-                android:layout_width="149dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:elevation="0dp"
-                android:text="New Account"
-                android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textStyle="bold|italic" />
 
         </LinearLayout>

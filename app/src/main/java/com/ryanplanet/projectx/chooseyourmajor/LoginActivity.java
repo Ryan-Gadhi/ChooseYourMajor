@@ -45,13 +45,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
-    private UserLoginTask mAuthTask = null;
+    private UserLoginTask Authentication = null;
 
     // UI references.
     private AutoCompleteTextView EmailView;
     private EditText PasswordView;
     private View ProgressView;
     private View LoginFormView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         EmailView = (AutoCompleteTextView) findViewById(R.id.email);
 
         PasswordView = (EditText) findViewById(R.id.password);
+
+
+        /**
+         *
+         */
         PasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -92,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        if (mAuthTask != null) {
+        if (Authentication != null) {
             return;
         }
 
@@ -133,14 +139,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            Authentication = new UserLoginTask(email, password);
+            Authentication.execute((Void) null);
         }
     }
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return email.contains("@")&&email.contains(".");
     }
 
     private boolean isPasswordValid(String password) {
@@ -210,7 +216,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             cursor.moveToNext();
         }
 
-        addEmailsToAutoComplete(emails);
     }
 
     @Override
@@ -218,14 +223,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     }
 
-    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
-                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
-
-        EmailView.setAdapter(adapter);
-    }
 
 
     private interface ProfileQuery {
@@ -277,7 +274,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
+            Authentication = null;
             showProgress(false);
 
             if (success) {
@@ -290,7 +287,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected void onCancelled() {
-            mAuthTask = null;
+            Authentication = null;
             showProgress(false);
         }
     }
