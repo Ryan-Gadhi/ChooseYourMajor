@@ -8,11 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcomeTxt"
         android:layout_width="wrap_content"
         android:layout_height="79dp"
         android:text="@string/main_welcome_msg"
         android:textColor="@color/darkBrown"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,14 +22,14 @@
         app:layout_constraintVertical_bias="0.062" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/darkBrown"
+        android:capitalize="none"
         android:fontFamily="monospace"
         android:text="   Start without account > "
         android:textColor="@color/white"
@@ -36,12 +37,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTxt"
         app:layout_constraintVertical_bias="0.331" />
 
+    <Button
+        android:id="@+id/startBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/darkBrown"
+        android:capitalize="none"
+        android:fontFamily="monospace"
+        android:text="   Login/ New Account  > "
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTxt"
+        app:layout_constraintVertical_bias="0.144" />
+
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="411dp"
+        android:id="@+id/welcomeImg"
+        android:layout_width="0dp"
         android:layout_height="272dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
