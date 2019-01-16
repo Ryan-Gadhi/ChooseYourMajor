@@ -1,8 +1,11 @@
 package com.ryanplanet.projectx.chooseyourmajor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +16,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Log.d(Tag1,"on Create");
+
+        Button loginBtn = (Button) findViewById(R.id.loginBtn);
+        final Intent i = new Intent(this,LoginActivity.class);
+        loginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(i);
+            }
+        });
+
+        /**
+         *  creating a welcome message
+         */
+        Toast.makeText(getBaseContext(), "Welcome!",
+                Toast.LENGTH_LONG).show();
+
     }
 
     @Override
@@ -38,18 +57,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(Tag1,"on Stop");
-        Toast.makeText(getBaseContext(), "We will wait for you!",
-                Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(Tag1,"on Restart");
 
-        Toast.makeText(getBaseContext(), "Welcome Back!",
-                Toast.LENGTH_LONG).show();
     }
 
     @Override
