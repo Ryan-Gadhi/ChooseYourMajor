@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ChooseYourMajor</string>
-    <string name="main_welcome_msg">Hi there! \n this app is made to help you choose your major. enjoy!</string>
+    <string name="main_welcome_msg">Hi there! \n this app is made to help you choose your major.\n
+                                     But of course the final choise should be yours. \n enjoy!  </string>
 </resources>
